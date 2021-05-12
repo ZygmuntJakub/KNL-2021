@@ -1,8 +1,20 @@
 import * as React from "react";
+import { graphql } from "gatsby";
 
-// markup
-const IndexPage = () => {
-    return <>Hello</>;
-};
+export default function IndexPage({ data }) {
+    const { markdownRemark } = data;
+    const { frontmatter } = markdownRemark;
+    return <>{frontmatter.title}</>;
+}
 
-export default IndexPage;
+export const pageQuery = graphql`
+    query MyQuery {
+        markdownRemark(html: {}, frontmatter: { title: { eq: "Kuba" } }) {
+            id
+            html
+            frontmatter {
+                title
+            }
+        }
+    }
+`;
