@@ -1,6 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: "KNL 2021",
+        siteUrl: `http://www.kinonalezakach.pl`,
     },
     plugins: [
         "gatsby-plugin-netlify-cms",
